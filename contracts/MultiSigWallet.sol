@@ -50,7 +50,7 @@ contract MultiSignWallet {
         {
             address owner = _owners[i];
 
-            require(owner == address(0), "invalid owner");
+            require(owner != address(0), "invalid owner");
             require(!isOwner[owner], "owner is not unique");
 
             isOwner[owner] = true;
@@ -95,7 +95,7 @@ contract MultiSignWallet {
 
         transation.execute = true;
         (bool success, ) = transation.to.call{value: transation.value}(transation.data);
-        require(!success, "execute fail");
+        require(success, "execute fail");
 
         emit Execute(_txId);
     }
