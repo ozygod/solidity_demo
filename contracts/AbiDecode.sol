@@ -6,6 +6,10 @@ contract AbiDecode {
         string name;
         uint[2] nums;
     }
+    // x: 1
+    // addr: 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db
+    // arr: [2,3,3,3]
+    // demo: ["demo", [2,3]]
     function encode(uint x, address addr, uint[] calldata arr, DecodeDemo calldata demo) external pure returns (bytes memory){
         return abi.encode(x, addr, arr, demo);
     }
